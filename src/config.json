@@ -1,0 +1,10 @@
+{
+  "pro": {
+    "API_HOST": "",
+    "BASE_URL": "/api"
+  },
+  "dev": {
+    "API_HOST": "",
+    "BASE_URL": "/api"
+  }
+}
