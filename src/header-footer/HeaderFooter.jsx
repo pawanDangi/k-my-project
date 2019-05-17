@@ -1,47 +1,48 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/core/styles';
-import { CssBaseline, Typography } from '@material-ui/core/';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { withStyles } from "@material-ui/core/styles";
+import { CssBaseline, Typography } from "@material-ui/core/";
+import { withRouter } from "react-router";
 
-import { background } from '../utils/colors';
-import Header from './Header';
-import DesktopSideBar from './DesktopSideBar';
-import MobileSideBar from './MobileSideBar';
-import Footer from './Footer';
+import { background } from "../utils/colors";
+import Header from "./Header";
+import DesktopSideBar from "./DesktopSideBar";
+import MobileSideBar from "./MobileSideBar";
+import Footer from "./Footer";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
-    display: 'flex'
+    display: "flex"
   },
   content: {
     width: `calc(100% - ${drawerWidth}px)`,
     flexGrow: 1,
-    '& div': {
+    "& div": {
       background: background.default
     }
   },
   toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    marginBottom: '20px',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: "0 8px",
+    marginBottom: "20px",
     ...theme.mixins.toolbar
   },
   footer: {
-    position: 'relative'
+    position: "relative"
   },
   desktopSideBar: {
-    [theme.breakpoints.down('sm')]: {
-      display: 'none'
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
     }
   },
   mobileSideBar: {
-    [theme.breakpoints.up('md')]: {
-      display: 'none'
+    [theme.breakpoints.up("md")]: {
+      display: "none"
     }
   }
 });
@@ -57,11 +58,11 @@ class AppHeader extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.updateHeight);
+    window.addEventListener("resize", this.updateHeight);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.updateHeight);
+    window.removeEventListener("resize", this.updateHeight);
   }
 
   updateHeight = () => {
@@ -92,7 +93,7 @@ class AppHeader extends React.Component {
             </div>
           </React.Fragment>
         ) : (
-          ''
+          ""
         )}
         <main className={classes.content}>
           <div style={{ minHeight }}>
@@ -120,5 +121,9 @@ const mapDispatchToProps = () => ({});
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(withStyles(styles)(AppHeader));
+  mapDispatchToProps,
+  null,
+  {
+    pure: false
+  }
+)(withStyles(styles)(withRouter(AppHeader)));

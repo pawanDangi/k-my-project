@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 import PaperMain from "../components/PaperMain";
 
-class Dashboard extends Component {
+class Analytics extends Component {
   state = {};
 
   render() {
-    return <PaperMain>Dashboard</PaperMain>;
+    return <PaperMain>Analytics</PaperMain>;
   }
 }
 
-export default Dashboard;
+export default Analytics;

@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import Loading from './components/Loading';
-import SnackbarAlert from './components/SnackbarAlert';
-import AlertDialog from './components/AlertDialog';
-import Routes from './Routes';
-import getCookies from './utils/get-cookie';
-import { addCookies } from './actions';
+import Loading from "./components/Loading";
+import SnackbarAlert from "./components/SnackbarAlert";
+import AlertDialog from "./components/AlertDialog";
+import Routes from "./Routes";
+import getCookies from "./utils/get-cookie";
+import { addCookies } from "./actions";
 
 class App extends Component {
   state = {
@@ -43,5 +43,9 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
+  null,
+  {
+    pure: false
+  }
 )(App);
