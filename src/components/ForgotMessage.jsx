@@ -1,57 +1,62 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Paper, Typography } from '@material-ui/core/';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import { Paper, Typography } from "@material-ui/core/";
+import { NavLink } from "react-router-dom";
 
-import { background, primary, text } from '../utils/colors';
+import { background, primary, secondary, text } from "../utils/colors";
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-    '& div': {
+    textAlign: "center",
+    "& div": {
       background: background.paper
     }
   },
   page: {
     ...theme.mixins.gutters(),
-    [theme.breakpoints.down('xs')]: {
-      width: '90%'
+    [theme.breakpoints.down("xs")]: {
+      width: "90%"
     },
-    [theme.breakpoints.up('sm')]: {
-      width: '60%'
+    [theme.breakpoints.up("sm")]: {
+      width: "60%"
     },
-    [theme.breakpoints.up('md')]: {
-      width: '40%'
+    [theme.breakpoints.up("md")]: {
+      width: "40%"
     },
-    [theme.breakpoints.up('lg')]: {
-      width: '30%'
+    [theme.breakpoints.up("lg")]: {
+      width: "30%"
     },
     marginTop: 50,
     borderRadius: 10,
-    padding: '10 !important',
-    display: 'inline-block'
+    padding: "0 !important",
+    display: "inline-block"
   },
   heading: {
-    color: primary.main,
-    padding: '20px 0',
-    borderBottom: '3px solid'
+    color: secondary.main,
+    background: primary.dark,
+    borderRadius: "10px 10px 0px 0px",
+    padding: "20px 0"
   },
   text: {
-    padding: '22px 0px'
+    padding: "22px 0px",
+    margin: "10px"
   },
   sugg: {
-    padding: '22px 0px',
-    fontWeight: '500',
-    fontSize: '16px'
+    padding: "22px 0px",
+    fontWeight: "500",
+    fontSize: "16px",
+    margin: "10px"
   },
   info: {
-    padding: '22px 0px',
-    fontSize: '16px',
-    color: text.disabled
+    padding: "22px 0px",
+    fontSize: "16px",
+    color: text.disabled,
+    margin: "10px"
   },
   link: {
-    padding: '22px 0px',
-    textAlign: 'left'
+    padding: "22px 0px",
+    textAlign: "left",
+    margin: "10px"
   }
 });
 
@@ -78,7 +83,7 @@ class ForgotMessage extends Component {
             your junk, spam, social, or other folders.
           </Typography>
           <div className={classes.link}>
-            <NavLink to={'/forgot-password'}>
+            <NavLink to={"/forgot-password"}>
               I didn't receive the email
             </NavLink>
           </div>

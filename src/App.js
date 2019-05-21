@@ -8,6 +8,8 @@ import Routes from "./Routes";
 import getCookies from "./utils/get-cookie";
 import { addCookies } from "./actions";
 
+import loding from "../src/utils/loader";
+
 class App extends Component {
   state = {
     wait: true

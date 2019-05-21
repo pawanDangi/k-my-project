@@ -1,44 +1,45 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Paper, TextField, Typography, Button } from '@material-ui/core/';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import { Paper, TextField, Typography, Button } from "@material-ui/core/";
+import { NavLink } from "react-router-dom";
 
-import { background, primary, text, secondary } from '../utils/colors';
+import { background, primary, text, secondary } from "../utils/colors";
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-    '& div': {
+    textAlign: "center",
+    "& div": {
       background: background.paper
     }
   },
   page: {
     ...theme.mixins.gutters(),
-    [theme.breakpoints.down('xs')]: {
-      width: '90%'
+    [theme.breakpoints.down("xs")]: {
+      width: "90%"
     },
-    [theme.breakpoints.up('sm')]: {
-      width: '60%'
+    [theme.breakpoints.up("sm")]: {
+      width: "60%"
     },
-    [theme.breakpoints.up('md')]: {
-      width: '40%'
+    [theme.breakpoints.up("md")]: {
+      width: "40%"
     },
-    [theme.breakpoints.up('lg')]: {
-      width: '30%'
+    [theme.breakpoints.up("lg")]: {
+      width: "30%"
     },
-    margin: '50px 5px',
+    margin: "50px 5px",
     borderRadius: 10,
-    padding: '10 !important',
-    display: 'inline-block'
+    padding: "0 !important",
+    display: "inline-block"
   },
   heading: {
-    color: primary.main,
-    padding: '20px 0',
-    borderBottom: '3px solid'
+    color: secondary.main,
+    background: primary.dark,
+    borderRadius: "10px 10px 0px 0px",
+    padding: "20px 0"
   },
   form: {
-    padding: '10px 0px',
-    display: 'grid'
+    padding: "10px 0px",
+    display: "grid"
   },
   textField: {
     margin: theme.spacing.unit
@@ -48,33 +49,34 @@ const styles = theme => ({
   },
   login: {
     margin: theme.spacing.unit,
-    lineHeight: '35px',
-    background: primary.main,
-    '&:hover': {
-      background: primary.dark
+    lineHeight: "35px",
+    color: primary.dark,
+    background: secondary.main,
+    "&:hover": {
+      background: secondary.dark
     }
   },
   or: {
-    width: '100%',
-    textAlign: 'center',
+    width: "100%",
+    textAlign: "center",
     borderBottom: `1px solid ${text.disabled}`,
-    lineHeight: '0.1em',
-    margin: '10px 0 20px',
-    paddingTop: '15px',
-    fontSize: '15px',
-    '& span': {
-      background: '#fff',
+    lineHeight: "0.1em",
+    margin: "10px 0 20px",
+    paddingTop: "15px",
+    fontSize: "15px",
+    "& span": {
+      background: "#fff",
       color: `${text.disabled}`,
-      padding: '0 10px'
+      padding: "0 10px"
     }
   },
   demo: {
     margin: theme.spacing.unit,
-    lineHeight: '35px',
-    marginTop: '8px',
+    lineHeight: "35px",
+    marginTop: "8px",
     color: secondary.main,
     border: `1px solid ${secondary.main}`,
-    '&:hover': {
+    "&:hover": {
       color: secondary.dark,
       border: `1px solid ${secondary.dark}`
     }
@@ -83,8 +85,8 @@ const styles = theme => ({
 
 class LoginForm extends Component {
   state = {
-    email: 'abc',
-    password: 'xyz'
+    email: "abc",
+    password: "xyz"
   };
 
   render() {
@@ -120,7 +122,7 @@ class LoginForm extends Component {
               variant="outlined"
               value={password}
             />
-            <NavLink to={'/forgot-password'} className={classes.link}>
+            <NavLink to={"/forgot-password"} className={classes.link}>
               Forgot password?
             </NavLink>
             <Button

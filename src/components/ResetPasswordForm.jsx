@@ -1,66 +1,68 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Paper, TextField, Typography, Button } from '@material-ui/core/';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import { Paper, TextField, Typography, Button } from "@material-ui/core/";
 
-import { background, primary } from '../utils/colors';
+import { background, primary, secondary } from "../utils/colors";
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-    '& div': {
+    textAlign: "center",
+    "& div": {
       background: background.paper
     }
   },
   page: {
     ...theme.mixins.gutters(),
-    [theme.breakpoints.down('xs')]: {
-      width: '90%'
+    [theme.breakpoints.down("xs")]: {
+      width: "90%"
     },
-    [theme.breakpoints.up('sm')]: {
-      width: '60%'
+    [theme.breakpoints.up("sm")]: {
+      width: "60%"
     },
-    [theme.breakpoints.up('md')]: {
-      width: '40%'
+    [theme.breakpoints.up("md")]: {
+      width: "40%"
     },
-    [theme.breakpoints.up('lg')]: {
-      width: '30%'
+    [theme.breakpoints.up("lg")]: {
+      width: "30%"
     },
-    margin: '50px 5px',
+    margin: "50px 5px",
     borderRadius: 10,
-    padding: '10 !important',
-    display: 'inline-block'
+    padding: "0 !important",
+    display: "inline-block"
   },
   heading: {
-    color: primary.main,
-    padding: '20px 0',
-    borderBottom: '3px solid'
+    color: secondary.main,
+    background: primary.dark,
+    borderRadius: "10px 10px 0px 0px",
+    padding: "20px 0"
   },
   form: {
-    padding: '10px 0px',
-    display: 'grid'
+    padding: "10px 0px",
+    display: "grid"
   },
   textField: {
     margin: theme.spacing.unit
   },
   sugg: {
-    padding: '22px 0px',
-    fontWeight: '500',
-    fontSize: '16px'
+    padding: "22px 0px",
+    fontWeight: "500",
+    fontSize: "16px"
   },
   submit: {
     margin: theme.spacing.unit,
-    lineHeight: '35px',
-    background: primary.main,
-    '&:hover': {
-      background: primary.dark
+    lineHeight: "35px",
+    color: primary.dark,
+    background: secondary.main,
+    "&:hover": {
+      background: secondary.dark
     }
   }
 });
 
 class ResetPasswordForm extends Component {
   state = {
-    oldPassword: 'abc',
-    newPassword: 'xyz'
+    oldPassword: "abc",
+    newPassword: "xyz"
   };
 
   render() {

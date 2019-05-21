@@ -1,71 +1,73 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Paper, Typography, TextField, Button } from '@material-ui/core/';
+import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import { Paper, Typography, TextField, Button } from "@material-ui/core/";
 
-import { background, primary, text } from '../utils/colors';
+import { background, primary, text, secondary } from "../utils/colors";
 
 const styles = theme => ({
   root: {
-    textAlign: 'center',
-    '& div': {
+    textAlign: "center",
+    "& div": {
       background: background.paper
     }
   },
   page: {
     ...theme.mixins.gutters(),
-    [theme.breakpoints.down('xs')]: {
-      width: '90%'
+    [theme.breakpoints.down("xs")]: {
+      width: "90%"
     },
-    [theme.breakpoints.up('sm')]: {
-      width: '60%'
+    [theme.breakpoints.up("sm")]: {
+      width: "60%"
     },
-    [theme.breakpoints.up('md')]: {
-      width: '40%'
+    [theme.breakpoints.up("md")]: {
+      width: "40%"
     },
-    [theme.breakpoints.up('lg')]: {
-      width: '30%'
+    [theme.breakpoints.up("lg")]: {
+      width: "30%"
     },
     marginTop: 50,
     borderRadius: 10,
-    padding: '10 !important',
-    display: 'inline-block'
+    padding: "0 !important",
+    display: "inline-block"
   },
   heading: {
-    color: primary.main,
-    padding: '20px 0',
-    borderBottom: '3px solid'
+    color: secondary.main,
+    background: primary.dark,
+    borderRadius: "10px 10px 0px 0px",
+    padding: "20px 0"
   },
   sugg: {
-    padding: '22px 0px',
-    fontWeight: '500',
-    fontSize: '16px'
+    padding: "22px 0px",
+    fontWeight: "500",
+    fontSize: "16px"
   },
   info: {
-    padding: '22px 0px',
-    fontSize: '16px',
+    padding: "22px 0px",
+    fontSize: "16px",
     color: text.disabled
   },
   form: {
-    padding: '10px 0px',
-    display: 'grid',
-    width: '100%'
+    padding: "10px 0px",
+    display: "grid",
+    width: "100%"
   },
   textField: {
-    margin: '10px 0px'
+    margin: "10px"
   },
   forgot: {
-    margin: '10px 0px',
-    lineHeight: '35px',
-    background: primary.main,
-    '&:hover': {
-      background: primary.dark
+    margin: "10px",
+    lineHeight: "35px",
+    color: primary.dark,
+    background: secondary.main,
+    "&:hover": {
+      background: secondary.dark
     }
   }
 });
 
 class ForgotPasswordForm extends Component {
   state = {
-    email: 'abc'
+    email: "abc"
   };
 
   render() {
