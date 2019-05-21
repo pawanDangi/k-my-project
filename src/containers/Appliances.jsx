@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import PaperMain from "../components/PaperMain";
+import PaperMain from '../components/PaperMain';
 
 class Appliances extends Component {
   state = {};

@@ -9,7 +9,7 @@ const copyToClipboard = text => {
   document.body.removeChild(el);
   snackbar({
     variant: 'success',
-    message: 'URL is copied to clipboard.'
+    message: 'URL is copied to clipboard.',
   });
 };
 

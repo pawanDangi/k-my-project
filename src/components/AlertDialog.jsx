@@ -7,17 +7,17 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle
+  DialogTitle,
 } from '@material-ui/core/';
 
 class AlertDialog extends React.Component {
   state = {
-    open: false
+    open: false,
   };
 
   componentWillReceiveProps(nextProps) {
     const {
-      alert: { open }
+      alert: { open },
     } = nextProps;
     if (open) {
       this.setState({ open: false }, () => {
@@ -28,7 +28,7 @@ class AlertDialog extends React.Component {
 
   handleClose = () => {
     const {
-      alert: { handleClose }
+      alert: { handleClose },
     } = this.props;
     this.setState({ open: false }, () => {
       if (handleClose) {
@@ -39,7 +39,7 @@ class AlertDialog extends React.Component {
 
   handleSuccess = () => {
     const {
-      alert: { handleSuccess }
+      alert: { handleSuccess },
     } = this.props;
     this.setState({ open: false }, () => {
       if (handleSuccess) {
@@ -51,7 +51,7 @@ class AlertDialog extends React.Component {
   render() {
     const { open } = this.state;
     const {
-      alert: { title, text, disagree, agree }
+      alert: { title, text, disagree, agree },
     } = this.props;
 
     return (
@@ -88,12 +88,12 @@ AlertDialog.propTypes = {
     title: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     disagree: PropTypes.string.isRequired,
-    agree: PropTypes.string.isRequired
-  }).isRequired
+    agree: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
-  alert: state.alert
+  alert: state.alert,
 });
 
 const mapDispatchToProps = () => ({});

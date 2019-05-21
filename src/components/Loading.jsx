@@ -7,22 +7,22 @@ import { connect } from 'react-redux';
 const styles = theme => ({
   progress: {
     margin: theme.spacing.unit * 2,
-    background: 'transparent'
+    background: 'transparent',
   },
   center: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   dialog: {
     background: 'transparent',
     padding: 0,
     margin: 0,
-    boxShadow: 'none'
-  }
+    boxShadow: 'none',
+  },
 });
 
 class Loading extends React.Component {
   state = {
-    completed: 0
+    completed: 0,
   };
 
   componentDidMount() {
@@ -58,11 +58,12 @@ class Loading extends React.Component {
 
 /* eslint react/forbid-prop-types: 0 */
 Loading.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  loader: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
-  loader: state.loader
+  loader: state.loader,
 });
 
 const mapDispatchToProps = () => ({});

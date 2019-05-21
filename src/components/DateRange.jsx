@@ -7,15 +7,15 @@ import 'bootstrap-daterangepicker/daterangepicker.css';
 
 const styles = () => ({
   dateRange: {
-    width: '100%'
+    width: '100%',
   },
   dateText: {
     textAlign: 'center',
     width: '95%',
     border: '1px solid #ccc',
     borderRadius: '6px',
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 });
 
 const ranges = {
@@ -23,7 +23,7 @@ const ranges = {
     moment()
       .year('2016')
       .startOf('year'),
-    moment()
+    moment(),
   ],
   Today: [moment().startOf('day'), moment().endOf('day')],
   Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
@@ -35,8 +35,8 @@ const ranges = {
       .startOf('month'),
     moment()
       .subtract(1, 'month')
-      .endOf('month')
-  ]
+      .endOf('month'),
+  ],
 };
 
 function DateRange(props) {
@@ -64,11 +64,11 @@ function DateRange(props) {
 DateRange.propTypes = {
   classes: PropTypes.shape({
     dateRange: PropTypes.string.isRequired,
-    dateText: PropTypes.string.isRequired
+    dateText: PropTypes.string.isRequired,
   }).isRequired,
   startDate: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   endDate: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  changeDateRange: PropTypes.func.isRequired
+  changeDateRange: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(DateRange);

@@ -2,9 +2,9 @@ import { SHOW_ALERT, HIDE_ALERT } from '../actionType';
 
 export const showAlert = data => ({
   type: SHOW_ALERT,
-  data
+  data,
 });
 
 export const removeAlert = () => ({
-  type: HIDE_ALERT
+  type: HIDE_ALERT,
 });

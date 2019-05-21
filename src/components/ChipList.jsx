@@ -7,11 +7,11 @@ const styles = theme => ({
   root: {
     display: 'flex',
     justifyContent: 'left',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   chip: {
-    margin: theme.spacing.unit
-  }
+    margin: theme.spacing.unit,
+  },
 });
 
 function Chips(props) {
@@ -47,7 +47,7 @@ function Chips(props) {
 Chips.propTypes = {
   classes: PropTypes.object.isRequired,
   data: PropTypes.array.isRequired,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(Chips);

@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import PaperMain from "../components/PaperMain";
+import PaperMain from '../components/PaperMain';
 
 class Analytics extends Component {
   state = {};

@@ -20,9 +20,15 @@
       {
         "trailingComma": "es5",
         "singleQuote": true,
-        "printWidth": 100
+        "printWidth": 80
       }
     ]
   },
-  "plugins": ["prettier"]
+  "plugins": ["prettier"],
+  "globals": {
+    "window": true,
+    "navigator": true,
+    "fetch": true,
+    "document": true
+  }
 }

@@ -6,7 +6,7 @@ import {
   Error as ErrorIcon,
   Info as InfoIcon,
   Close as CloseIcon,
-  Warning as WarningIcon
+  Warning as WarningIcon,
 } from '@material-ui/icons/';
 import { green, amber } from '@material-ui/core/colors/';
 import { IconButton, Snackbar, SnackbarContent } from '@material-ui/core/';
@@ -17,33 +17,33 @@ const variantIcon = {
   success: CheckCircleIcon,
   warning: WarningIcon,
   error: ErrorIcon,
-  info: InfoIcon
+  info: InfoIcon,
 };
 
 const styles1 = theme => ({
   success: {
-    backgroundColor: green[600]
+    backgroundColor: green[600],
   },
   error: {
-    backgroundColor: theme.palette.error.dark
+    backgroundColor: theme.palette.error.dark,
   },
   info: {
-    backgroundColor: theme.palette.primary.dark
+    backgroundColor: theme.palette.primary.dark,
   },
   warning: {
-    backgroundColor: amber[700]
+    backgroundColor: amber[700],
   },
   icon: {
-    fontSize: 20
+    fontSize: 20,
   },
   iconVariant: {
     opacity: 0.9,
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing.unit,
   },
   message: {
     display: 'flex',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 function MySnackbarContent(props) {
@@ -69,7 +69,7 @@ function MySnackbarContent(props) {
           onClick={onClose}
         >
           <CloseIcon className={classes.icon} />
-        </IconButton>
+        </IconButton>,
       ]}
       {...other}
     />
@@ -84,23 +84,23 @@ MySnackbarContent.propTypes = {
     warning: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
     iconVariant: PropTypes.string.isRequired,
-    message: PropTypes.string.isRequired
+    message: PropTypes.string.isRequired,
   }).isRequired,
   message: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
-  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired
+  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
 };
 
 const MySnackbarContentWrapper = withStyles(styles1)(MySnackbarContent);
 
 class SnackbarAlert extends React.Component {
   state = {
-    open: false
+    open: false,
   };
 
   componentWillReceiveProps(nextProps) {
     const {
-      snackbar: { open }
+      snackbar: { open },
     } = nextProps;
     if (open) {
       this.setState({ open: false }, () => {
@@ -126,7 +126,7 @@ class SnackbarAlert extends React.Component {
         <Snackbar
           anchorOrigin={{
             vertical: anchorOrigin.vertical,
-            horizontal: anchorOrigin.horizontal
+            horizontal: anchorOrigin.horizontal,
           }}
           open={open}
           autoHideDuration={autoHideDuration}
@@ -148,12 +148,12 @@ SnackbarAlert.defaultProps = {
     open: false,
     anchorOrigin: {
       vertical: 'top',
-      horizontal: 'right'
+      horizontal: 'right',
     },
     autoHideDuration: 3000,
     variant: 'success',
-    message: 'This is a success message!'
-  }
+    message: 'This is a success message!',
+  },
 };
 
 SnackbarAlert.propTypes = {
@@ -161,16 +161,16 @@ SnackbarAlert.propTypes = {
     open: PropTypes.bool,
     anchorOrigin: PropTypes.shape({
       vertical: PropTypes.string,
-      horizontal: PropTypes.string
+      horizontal: PropTypes.string,
     }),
     autoHideDuration: PropTypes.number,
     variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']),
-    message: PropTypes.string
-  })
+    message: PropTypes.string,
+  }),
 };
 
 const mapStateToProps = state => ({
-  snackbar: state.snackbar
+  snackbar: state.snackbar,
 });
 
 const mapDispatchToProps = () => ({});

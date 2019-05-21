@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper, Typography, TextField, Button, Chip } from '@material-ui/core/';
 import FaceIcon from '@material-ui/icons/Face';
@@ -9,64 +10,64 @@ const styles = theme => ({
   root: {
     textAlign: 'center',
     '& div': {
-      background: background.paper
-    }
+      background: background.paper,
+    },
   },
   page: {
     ...theme.mixins.gutters(),
     [theme.breakpoints.down('xs')]: {
-      width: '90%'
+      width: '90%',
     },
     [theme.breakpoints.up('sm')]: {
-      width: '60%'
+      width: '60%',
     },
     [theme.breakpoints.up('md')]: {
-      width: '40%'
+      width: '40%',
     },
     [theme.breakpoints.up('lg')]: {
-      width: '30%'
+      width: '30%',
     },
     marginTop: 50,
     borderRadius: 10,
     padding: '10 !important',
-    display: 'inline-block'
+    display: 'inline-block',
   },
   heading: {
     color: primary.main,
     padding: '20px 0',
-    borderBottom: '3px solid'
+    borderBottom: '3px solid',
   },
   chip: {
     fontSize: '20px',
     border: '1px solid',
-    marginTop: '20px'
+    marginTop: '20px',
   },
   sugg: {
     padding: '22px 0px',
     fontWeight: '500',
-    fontSize: '16px'
+    fontSize: '16px',
   },
   form: {
     padding: '10px 0px',
     display: 'grid',
-    width: '100%'
+    width: '100%',
   },
   textField: {
-    margin: '10px 0px'
+    margin: '10px 0px',
   },
   verify: {
     margin: '10px 0px',
     lineHeight: '35px',
     background: primary.main,
     '&:hover': {
-      background: primary.dark
-    }
-  }
+      background: primary.dark,
+    },
+  },
 });
 
-class ForgotPasswordForm extends Component {
+class VerifyPasswordForm extends Component {
   state = {
-    password: 'abc'
+    password: 'abc',
   };
 
   render() {
@@ -101,7 +102,7 @@ class ForgotPasswordForm extends Component {
               variant="contained"
               color="primary"
               className={classes.verify}
-              onClick={e => verify(password)}
+              onClick={() => verify(password)}
             >
               Next
             </Button>
@@ -112,4 +113,10 @@ class ForgotPasswordForm extends Component {
   }
 }
 
-export default withStyles(styles)(ForgotPasswordForm);
+VerifyPasswordForm.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  classes: PropTypes.object.isRequired,
+  verify: PropTypes.func.isRequired,
+};
+
+export default withStyles(styles)(VerifyPasswordForm);

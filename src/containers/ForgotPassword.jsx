@@ -4,12 +4,11 @@ import ForgotMessage from '../components/ForgotMessage';
 
 class ForgotPassword extends Component {
   state = {
-    reset: false
+    reset: false,
   };
 
   forgot = email => {
     this.setState({ email, reset: true });
-    console.log(email);
   };
 
   render() {

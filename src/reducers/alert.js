@@ -7,7 +7,7 @@ const defaultData = {
   agree: 'Yes',
   disagree: 'No',
   handleClose: () => {},
-  handleSuccess: () => {}
+  handleSuccess: () => {},
 };
 
 const alert = (state = defaultData, action) => {

@@ -4,11 +4,11 @@ const defaultData = {
   open: false,
   anchorOrigin: {
     vertical: 'bottom',
-    horizontal: 'right'
+    horizontal: 'right',
   },
   autoHideDuration: 3000,
   variant: 'success',
-  message: 'This is a success message!'
+  message: 'This is a success message!',
 };
 
 const snackbar = (state = defaultData, action) => {

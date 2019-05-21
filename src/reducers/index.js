@@ -8,5 +8,5 @@ export default combineReducers({
   cookies,
   loader,
   snackbar,
-  alert
+  alert,
 });

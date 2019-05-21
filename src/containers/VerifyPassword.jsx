@@ -3,6 +3,7 @@ import VerifyPasswordForm from '../components/VerifyPasswordForm';
 
 class VerifyPassword extends Component {
   verify = password => {
+    // eslint-disable-next-line no-console
     console.log(password);
   };
 

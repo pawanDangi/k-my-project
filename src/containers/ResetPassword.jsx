@@ -3,10 +3,11 @@ import ResetPasswordForm from '../components/ResetPasswordForm';
 
 class ResetPassword extends Component {
   state = {
-    email: 'abc'
+    email: 'abc',
   };
 
   reset = (oldPassword, newPassword) => {
+    // eslint-disable-next-line no-console
     console.log(oldPassword, newPassword);
   };
 

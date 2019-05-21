@@ -19,15 +19,15 @@ export const fetchStreams = async (
       method: 'get',
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',
-        token
-      }
+        token,
+      },
     });
     return response.data;
   } catch (error) {
     snackbar({
       variant: 'error',
       message:
-        error.response.data.message || 'Error while fetching streams data.'
+        error.response.data.message || 'Error while fetching streams data.',
     });
     if (error.response.status === 401) {
       window.location = '/login';
@@ -43,8 +43,8 @@ export const fetchStream = async (token, id) => {
       method: 'get',
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',
-        token
-      }
+        token,
+      },
     });
     return response;
   } catch (error) {
@@ -58,12 +58,12 @@ export const createStream = async (token, value) => {
       url: `${configVar.API_HOST}${configVar.BASE_URL}/streams`,
       method: 'post',
       data: {
-        ...value
+        ...value,
       },
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',
-        token
-      }
+        token,
+      },
     });
     return response;
   } catch (error) {
@@ -77,12 +77,12 @@ export const updateStream = async (token, id, value) => {
       url: `${configVar.API_HOST}${configVar.BASE_URL}/streams/${id}`,
       method: 'patch',
       data: {
-        ...value
+        ...value,
       },
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',
-        token
-      }
+        token,
+      },
     });
     return response;
   } catch (error) {
@@ -97,8 +97,8 @@ export const deleteStream = async (token, id) => {
       method: 'delete',
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',
-        token
-      }
+        token,
+      },
     });
     return response;
   } catch (error) {
@@ -112,12 +112,12 @@ export const validateStream = async (token, url) => {
       url: `${configVar.API_HOST}${configVar.BASE_URL}/streams/validate`,
       method: 'post',
       data: {
-        url
+        url,
       },
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',
-        token
-      }
+        token,
+      },
     });
     return response;
   } catch (error) {
