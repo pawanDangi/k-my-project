@@ -1,23 +1,24 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  Switch
-} from "react-router-dom";
+  Switch,
+} from 'react-router-dom';
 
-import AppHeader from "./header-footer/HeaderFooter";
-import Login from "./containers/Login";
-import ForgotPassword from "./containers/ForgotPassword";
-import ResetPassword from "./containers/ResetPassword";
-import VerifyPassword from "./containers/VerifyPassword";
-import ContactUs from "./containers/ContactUs";
-import Dashboard from "./containers/Dashboard";
-import Zones from "./containers/Zones";
-import Appliances from "./containers/Appliances";
-import Content from "./containers/Content";
-import Analytics from "./containers/Analytics";
+import AppHeader from './header-footer/HeaderFooter';
+import Login from './containers/Login';
+import ForgotPassword from './containers/ForgotPassword';
+import ResetPassword from './containers/ResetPassword';
+import VerifyPassword from './containers/VerifyPassword';
+import ContactUs from './containers/ContactUs';
+import Dashboard from './containers/Dashboard';
+import Zones from './containers/Zones';
+import Appliances from './containers/Appliances';
+import Content from './containers/Content';
+import Analytics from './containers/Analytics';
 
 const PrivateRoute = ({ component: Component, cookies, ...rest }) => (
   <Route
@@ -31,6 +32,13 @@ const PrivateRoute = ({ component: Component, cookies, ...rest }) => (
     }
   />
 );
+
+PrivateRoute.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  component: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  cookies: PropTypes.object.isRequired,
+};
 
 const Routes = ({ cookies }) => (
   <Router>
@@ -82,8 +90,13 @@ const Routes = ({ cookies }) => (
   </Router>
 );
 
+Routes.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  cookies: PropTypes.object.isRequired,
+};
+
 const mapStateToProps = state => ({
-  cookies: state.cookies
+  cookies: state.cookies,
 });
 
 const mapDispatchToProps = () => ({});
@@ -93,6 +106,6 @@ export default connect(
   mapDispatchToProps,
   null,
   {
-    pure: false
+    pure: false,
   }
 )(Routes);

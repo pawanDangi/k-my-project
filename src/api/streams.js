@@ -13,9 +13,7 @@ export const fetchStreams = async (
 ) => {
   try {
     const response = await axios({
-      url: `${configVar.API_HOST}${
-        configVar.BASE_URL
-      }/streams?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&search=${search}`,
+      url: `${configVar.API_HOST}${configVar.BASE_URL}/streams?page=${page}&pageSize=${pageSize}&orderBy=${orderBy}&search=${search}`,
       method: 'get',
       headers: {
         'Content-Type': ' application/json;charset=UTF-8',

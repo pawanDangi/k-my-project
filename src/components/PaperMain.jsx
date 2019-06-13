@@ -35,7 +35,7 @@ class PaperMain extends Component {
 /* eslint react/forbid-prop-types: 0 */
 PaperMain.propTypes = {
   classes: PropTypes.object.isRequired,
-  children: PropTypes.array.isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 export default withStyles(styles)(PaperMain);

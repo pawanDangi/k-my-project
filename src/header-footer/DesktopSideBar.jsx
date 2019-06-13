@@ -12,29 +12,29 @@ const styles = theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   },
   drawerOpen: {
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
-    })
+      duration: theme.transitions.duration.enteringScreen,
+    }),
   },
   drawerClose: {
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
+      duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1
-    }
+      width: theme.spacing.unit * 9 + 1,
+    },
   },
   drawerPaper: {
-    top: '64px'
-  }
+    top: '64px',
+  },
 });
 
 function DesktopSideBar(props) {
@@ -44,13 +44,13 @@ function DesktopSideBar(props) {
       variant="permanent"
       className={classNames(classes.drawer, {
         [classes.drawerOpen]: open,
-        [classes.drawerClose]: !open
+        [classes.drawerClose]: !open,
       })}
       classes={{
         paper: classNames(classes.drawerPaper, {
           [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open
-        })
+          [classes.drawerClose]: !open,
+        }),
       }}
       open={open}
     >
@@ -61,7 +61,8 @@ function DesktopSideBar(props) {
 
 /* eslint react/forbid-prop-types: 0 */
 DesktopSideBar.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  open: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(DesktopSideBar);

@@ -16,9 +16,9 @@ const styles = {
     padding: '2px 5px',
     fontSize: '12px',
     '& div': {
-      background: primary.main
-    }
-  }
+      background: primary.main,
+    },
+  },
 };
 
 function Footer(props) {
@@ -33,7 +33,7 @@ function Footer(props) {
 
 /* eslint react/forbid-prop-types: 0 */
 Footer.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Footer);

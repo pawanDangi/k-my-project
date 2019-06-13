@@ -12,19 +12,19 @@ const styles = theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
   },
   drawerOpen: {
     display: 'grid',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen
+      duration: theme.transitions.duration.enteringScreen,
     }),
     [theme.breakpoints.up('md')]: {
-      display: 'none'
-    }
-  }
+      display: 'none',
+    },
+  },
 });
 
 function MobileSideBar(props) {
@@ -35,7 +35,7 @@ function MobileSideBar(props) {
       onClose={handleDrawer}
       className={classNames(classes.drawer, classes.drawerOpen)}
       classes={{
-        paper: classNames(classes.drawerOpen)
+        paper: classNames(classes.drawerOpen),
       }}
     >
       <div
@@ -52,7 +52,9 @@ function MobileSideBar(props) {
 
 /* eslint react/forbid-prop-types: 0 */
 MobileSideBar.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  handleDrawer: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
 };
 
 export default withStyles(styles)(MobileSideBar);
