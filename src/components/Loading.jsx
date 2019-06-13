@@ -8,6 +8,7 @@ const styles = theme => ({
   progress: {
     margin: theme.spacing.unit * 2,
     background: 'transparent',
+    color: '#FFC000',
   },
   center: {
     textAlign: 'center',

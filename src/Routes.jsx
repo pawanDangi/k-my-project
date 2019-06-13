@@ -51,7 +51,7 @@ const Routes = ({ cookies }) => (
             !(cookies && cookies.epasso) ? (
               <Login {...props} />
             ) : (
-              <Redirect to="/dashboard" />
+              <Redirect to="/zones" />
             )
           }
         />
@@ -84,7 +84,7 @@ const Routes = ({ cookies }) => (
           path="/analytics"
           component={Analytics}
         />
-        <Redirect from="*" to="/dashboard" />
+        <Redirect from="*" to="/zones" />
       </Switch>
     </AppHeader>
   </Router>

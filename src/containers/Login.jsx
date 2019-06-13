@@ -6,7 +6,6 @@ import { addCookies } from '../actions';
 import LoginForm from '../components/LoginForm';
 import { postMethod } from '../api/apiMethods';
 import { login } from '../api/endPoint';
-import snackbar from '../utils/snackbar';
 
 class Login extends Component {
   login = async (userName, password) => {
@@ -14,9 +13,7 @@ class Login extends Component {
       userName,
       password,
     });
-    if (response.errorMessage) {
-      snackbar({ variant: 'error', message: response.errorMessage });
-    } else {
+    if (!response.message) {
       document.cookie = `epasso=${response.accessToken}`;
       const { setCookies } = this.props;
       await setCookies({ epasso: response.accessToken });
