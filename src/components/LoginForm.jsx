@@ -1,151 +1,134 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { Paper, TextField, Typography, Button } from '@material-ui/core/';
 import { NavLink } from 'react-router-dom';
 
-import { background, primary, text, secondary } from '../utils/colors';
+import styles from '../css/login-form';
 
-const styles = theme => ({
-  root: {
-    textAlign: 'center',
-    '& div': {
-      background: background.paper,
-    },
-  },
-  page: {
-    ...theme.mixins.gutters(),
-    [theme.breakpoints.down('xs')]: {
-      width: '90%',
-    },
-    [theme.breakpoints.up('sm')]: {
-      width: '60%',
-    },
-    [theme.breakpoints.up('md')]: {
-      width: '40%',
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '30%',
-    },
-    margin: '50px 5px',
-    borderRadius: 10,
-    padding: '0 !important',
-    display: 'inline-block',
-  },
-  heading: {
-    color: secondary.main,
-    background: primary.dark,
-    borderRadius: '10px 10px 0px 0px',
-    padding: '20px 0',
-  },
-  form: {
-    padding: '10px 0px',
-    display: 'grid',
-  },
-  textField: {
-    margin: theme.spacing.unit,
-  },
-  link: {
-    margin: theme.spacing.unit,
-  },
-  login: {
-    margin: theme.spacing.unit,
-    lineHeight: '35px',
-    color: primary.dark,
-    background: secondary.main,
-    '&:hover': {
-      background: secondary.dark,
-    },
-  },
-  or: {
-    width: '100%',
-    textAlign: 'center',
-    borderBottom: `1px solid ${text.disabled}`,
-    lineHeight: '0.1em',
-    margin: '10px 0 20px',
-    paddingTop: '15px',
-    fontSize: '15px',
-    '& span': {
-      background: '#fff',
-      color: `${text.disabled}`,
-      padding: '0 10px',
-    },
-  },
-  demo: {
-    margin: theme.spacing.unit,
-    lineHeight: '35px',
-    marginTop: '8px',
-    color: secondary.main,
-    border: `1px solid ${secondary.main}`,
-    '&:hover': {
-      color: secondary.dark,
-      border: `1px solid ${secondary.dark}`,
-    },
-  },
-});
+const LoginForm = ({ classes, login }) => {
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorType, setErrorType] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-class LoginForm extends Component {
-  state = {
-    email: 'abc',
-    password: 'xyz',
+  useEffect(() => {
+    if (errorType === 'userName' && userName) {
+      setErrorType('');
+      setErrorMessage(``);
+    }
+  }, [userName, errorType]);
+
+  useEffect(() => {
+    if (errorType === 'password' && password) {
+      setErrorType('');
+      setErrorMessage(``);
+    }
+  }, [password, errorType]);
+
+  const onSubmit = () => {
+    if (!userName) {
+      setErrorType('userName');
+      setErrorMessage(`Username can't be empty.`);
+      return;
+    }
+    if (!password) {
+      setErrorType('password');
+      setErrorMessage(`Password can't be empty.`);
+      return;
+    }
+    login(userName, password);
   };
 
-  render() {
-    const { classes, login } = this.props;
-    const { email, password } = this.state;
-    return (
-      <div className={classes.root}>
-        <Paper className={classes.page} elevation={1}>
-          <Typography variant="h5" component="h3" className={classes.heading}>
-            Sign In
-          </Typography>
-          <form className={classes.form} autoComplete="off">
-            <TextField
-              id="outlined-email-input"
-              label="Email"
-              className={classes.textField}
-              type="email"
-              name="email"
-              autoComplete="email"
-              margin="normal"
-              variant="outlined"
-              autoFocus
-              value={email}
-            />
+  return (
+    <div className={classes.root}>
+      <Paper className={classes.page} elevation={1}>
+        <Typography variant="h5" component="h3" className={classes.heading}>
+          Sign In
+        </Typography>
+        <form className={classes.form} autoComplete="on">
+          <TextField
+            error={errorType === 'userName'}
+            helperText={errorType === 'userName' ? errorMessage : ''}
+            id="outlined-userName-input"
+            label="User Name"
+            className={classes.textField}
+            type="userName"
+            name="userName"
+            autoComplete="userName"
+            margin="normal"
+            variant="outlined"
+            autoFocus
+            value={userName}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
+            onChange={e => setUserName(e.target.value)}
+          />
 
-            <TextField
-              id="outlined-password-input"
-              label="Password"
-              className={classes.textField}
-              type="password"
-              autoComplete="current-password"
-              margin="normal"
-              variant="outlined"
-              value={password}
-            />
-            <NavLink to="/forgot-password" className={classes.link}>
-              Forgot password?
-            </NavLink>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.login}
-              onClick={() => login(email, password)}
-            >
-              Login
-            </Button>
-            <h2 className={classes.or}>
-              <span>OR</span>
-            </h2>
-            <Button variant="outlined" color="primary" className={classes.demo}>
-              Request Demo
-            </Button>
-          </form>
-        </Paper>
-      </div>
-    );
-  }
-}
+          <TextField
+            error={errorType === 'password'}
+            helperText={errorType === 'password' ? errorMessage : ''}
+            id="outlined-password-input"
+            label="Password"
+            className={classes.textField}
+            type="password"
+            autoComplete="current-password"
+            margin="normal"
+            variant="outlined"
+            value={password}
+            InputLabelProps={{
+              classes: {
+                root: classes.cssLabel,
+                focused: classes.cssFocused,
+              },
+            }}
+            InputProps={{
+              classes: {
+                root: classes.cssOutlinedInput,
+                focused: classes.cssFocused,
+                notchedOutline: classes.notchedOutline,
+              },
+            }}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <NavLink to="/forgot-password" className={classes.link}>
+            Forgot password?
+          </NavLink>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.login}
+            onClick={() => onSubmit()}
+          >
+            Login
+          </Button>
+          <h2 className={classes.or}>
+            <span>OR</span>
+          </h2>
+          <Button
+            type="submit"
+            variant="outlined"
+            color="primary"
+            className={classes.demo}
+          >
+            Request Demo
+          </Button>
+        </form>
+      </Paper>
+    </div>
+  );
+};
 
 /* eslint react/forbid-prop-types: 0 */
 LoginForm.propTypes = {

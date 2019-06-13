@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import { CssBaseline, Typography } from '@material-ui/core/';
-import { withRouter } from 'react-router';
 
 import { background } from '../utils/colors';
 import Header from './Header';
@@ -128,4 +127,4 @@ export default connect(
   {
     pure: false,
   }
-)(withStyles(styles)(withRouter(AppHeader)));
+)(withStyles(styles)(AppHeader));

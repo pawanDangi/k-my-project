@@ -29,6 +29,7 @@
     "window": true,
     "navigator": true,
     "fetch": true,
-    "document": true
+    "document": true,
+    "localStorage": true
   }
 }

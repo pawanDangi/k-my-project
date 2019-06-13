@@ -1,10 +1,10 @@
 {
   "pro": {
     "API_HOST": "",
-    "BASE_URL": "/api"
+    "BASE_URL": "/KioraNOC/v1/"
   },
   "dev": {
-    "API_HOST": "",
-    "BASE_URL": "/api"
+    "API_HOST": "http://54.185.51.5:8080",
+    "BASE_URL": "/KioraNOC/v1/"
   }
 }
