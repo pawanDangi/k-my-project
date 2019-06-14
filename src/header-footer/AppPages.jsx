@@ -65,6 +65,7 @@ const styles = {
   },
   text: {
     paddingTop: '4px',
+    color: 'rgba(0, 0, 0, 0.54)',
   },
   setting: {
     position: 'absolute',
@@ -78,6 +79,7 @@ const styles = {
   },
   bold: {
     fontWeight: 'bold',
+    color: common.black,
   },
 };
 
