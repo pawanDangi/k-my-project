@@ -13,7 +13,7 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     width: '98%',
     margin: '0 1%',
-    padding: '10px !important',
+    padding: '20px !important',
   },
 });
 

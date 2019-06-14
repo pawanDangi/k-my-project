@@ -120,7 +120,11 @@ const useStyles2 = makeStyles(theme => ({
   },
 }));
 
-export default function CustomPaginationActionsTable({ columns, rows }) {
+export default function CustomPaginationActionsTable({
+  columns,
+  rows,
+  action: Action,
+}) {
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -132,6 +136,8 @@ export default function CustomPaginationActionsTable({ columns, rows }) {
   function handleChangeRowsPerPage(event) {
     setRowsPerPage(parseInt(event.target.value, 10));
   }
+
+  const noOfColumns = Action ? columns.length + 1 : columns.length;
 
   return (
     <Paper className={classes.root}>
@@ -148,6 +154,9 @@ export default function CustomPaginationActionsTable({ columns, rows }) {
                   {c.name}
                 </TableCell>
               ))}
+              {Action ? (
+                <TableCell align="left" className={classes.tableHead} />
+              ) : null}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -167,12 +176,23 @@ export default function CustomPaginationActionsTable({ columns, rows }) {
                       {!Cell ? row[key] : <Cell value={row[key]} />}
                     </TableCell>
                   ))}
+                  {Action ? (
+                    <TableCell
+                      align="left"
+                      className={className(
+                        classes.tableCell,
+                        i % 2 !== 0 ? classes.background : ''
+                      )}
+                    >
+                      <Action id={row.id} />
+                    </TableCell>
+                  ) : null}
                 </TableRow>
               ))}
 
             {rows.length < 1 && (
               <TableRow style={{ height: 12 }}>
-                <TableCell align="center" colSpan={columns.length}>
+                <TableCell align="center" colSpan={noOfColumns}>
                   No data
                 </TableCell>
               </TableRow>
@@ -182,7 +202,7 @@ export default function CustomPaginationActionsTable({ columns, rows }) {
             <TableRow>
               <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
-                colSpan={columns.length}
+                colSpan={noOfColumns}
                 count={rows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
@@ -202,9 +222,14 @@ export default function CustomPaginationActionsTable({ columns, rows }) {
   );
 }
 
+CustomPaginationActionsTable.defaultProps = {
+  action: null,
+};
+
 CustomPaginationActionsTable.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   columns: PropTypes.array.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   rows: PropTypes.array.isRequired,
+  action: PropTypes.func,
 };
