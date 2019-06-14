@@ -37,13 +37,13 @@ const styles = theme => ({
     display: 'grid',
   },
   textField: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
   },
   link: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
   },
   login: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
     lineHeight: '35px',
     color: primary.dark,
     background: secondary.main,
@@ -66,7 +66,7 @@ const styles = theme => ({
     },
   },
   demo: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
     lineHeight: '35px',
     marginTop: '8px',
     color: secondary.main,

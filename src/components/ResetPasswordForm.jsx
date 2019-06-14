@@ -42,7 +42,7 @@ const styles = theme => ({
     display: 'grid',
   },
   textField: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
   },
   sugg: {
     padding: '22px 0px',
@@ -50,7 +50,7 @@ const styles = theme => ({
     fontSize: '16px',
   },
   submit: {
-    margin: theme.spacing.unit,
+    margin: theme.spacing(),
     lineHeight: '35px',
     color: primary.dark,
     background: secondary.main,
