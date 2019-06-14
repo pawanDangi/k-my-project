@@ -110,6 +110,7 @@ class Zones extends React.Component {
           : 'Zone is created.',
       });
     }
+    loader(false);
   };
 
   zoneDelete = id => {

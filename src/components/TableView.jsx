@@ -139,6 +139,12 @@ export default function CustomPaginationActionsTable({
 
   const noOfColumns = Action ? columns.length + 1 : columns.length;
 
+  const lastPage = Math.max(0, Math.ceil(rows.length / rowsPerPage) - 1);
+
+  if (page > lastPage) {
+    setPage(lastPage);
+  }
+
   return (
     <Paper className={classes.root}>
       <div className={classes.tableWrapper}>
